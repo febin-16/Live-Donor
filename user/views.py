@@ -25,9 +25,8 @@ class BloodRequestViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def get(self, request, format=None):
-        id=request.query_params.get("id")
-        user =BloodRequest.objects.get(id=id)
-        serializer = BloodRequestSerializer(user)
+        user =BloodRequest.objects.all()
+        serializer = BloodRequestSerializer(user,many=True)
         return Response(serializer.data)
 
 

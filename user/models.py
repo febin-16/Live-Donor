@@ -16,6 +16,7 @@ class BloodRequest(models.Model):
     requester = models.ForeignKey(User, on_delete=models.CASCADE, related_name='requests')
     blood_group = models.CharField(max_length=3)
     quantity = models.IntegerField()
+    hospital_name = models.CharField(max_length=200,default="")
     location = models.CharField(max_length=200)
     contact_number = models.CharField(max_length=15)
 
